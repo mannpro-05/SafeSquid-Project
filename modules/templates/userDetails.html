@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>
+            Hello User
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="static/styles.css">
+    </head>
+    <body>
+    <ul>
+  <li><a href="{{ url_for('index') }}">Home</a></li>
+  <li><a href="{{ url_for('display') }}">Querying Page</a></li>
+    <li><a href="{{ url_for('config') }}">Config Page</a></li>
+</ul>
+    <section class="inp-form">
+        <form  method="POST" id = 'input-form'>
+            <table>
+                <tr>
+                    <td>UserName:</td>
+                    <td><input placeholder="Username" name="uname" required></td>
+                </tr>
+                <tr>
+                    <td>UserGroup:</td>
+                    <td><input placeholder="UserGroup" name = "ugroup" id="group" required></td>
+                </tr>
+                <tr>
+                    <td>Website:</td>
+                    <td><input placeholder="Website" name="website" id="web" required></td>
+                </tr>
+            </table>
+            <button type="submit">Submit</button>
+            <script src="static/fieldsHandler.js"></script>
+
+        </form>
+        <h3><a href="/display">Click here to go to the display page</a></h3>
+        <div id="opt">
+
+        </div>
+    </body>
+</html>

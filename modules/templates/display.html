@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table,
+        tr,
+        td {
+            width: 100%;
+            height: 60%;
+            border-color: #7551e9;
+            color: #7551e9;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            font-size: 25px;
+            border-width: 1.2px;
+            overflow-y: hidden;
+            table-layout: fixed;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+<form action="/show" method="POST">
+        <input placeholder="Enter the username" name="uname"><br>
+        <input placeholder="Enter the UserGroup" name="ugroup"><br>
+        <input placeholder="Enter the Website" name="website"><br><br>
+        Want to filter?<input type="checkbox" name="filter"><br><br>
+        <button type="submit">Display</button><br><br>
+        <a href="/">Click here to go back to the default page.</a><br><br>
+    </form>
+    <div>
+        <table border="1" cellspacing=0 style="visibility: {{ hidden }}; ">
+            <tr>
+                <th>User Id</th>
+                <th>User Name</th>
+                <th>User Group</th>
+                <th>Website Name</th>
+                <th>TimeStamp</th>
+            </tr>
+            {% for key, val in data.items() %}
+                {% for i in val %}
+                    <tr>
+                    {% for key,val in i.items() %}
+                        <td>{{ val }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+
+            {% endfor %}
+        </table>
+
+    </div>
+</body>
+</body>
+</html>

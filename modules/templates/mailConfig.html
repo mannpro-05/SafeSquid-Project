@@ -1,0 +1,94 @@
+<html>
+<head>
+    <title></title>
+
+     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+     <link rel="stylesheet" href="static/styles.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+     <script src= "https://code.jquery.com/jquery-3.5.1.js"></script>
+     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+
+
+</head>
+
+<body>
+<ul>
+  <li><a href="{{ url_for('index') }}">Home</a></li>
+  <li><a href="{{ url_for('display') }}">Querying Page</a></li>
+    <li><a href="{{ url_for('config') }}">Config Page</a></li>
+</ul>
+  <section class="config-form">
+    <h1>Mail Server Configuration</h1>
+    <p>Please fill the following form with the required details to change the mail settings.</p>
+
+    <form>
+        <div class="input-group">
+        <label for="mailServer">SMTP SERVER</label>
+        <input id="mailServer" name="MAIL_SERVER" type="text" value="{{ smtp }}"/>
+      </div>
+
+      <div class="input-group">
+        <label for="mailPort">MAIL PORT</label>
+        <input id="mailPort" name="MAIL_PORT" type="text" onkeypress="return event.charCode > 47 && event.charCode < 58;" value="{{ port }}"/>
+      </div>
+
+       <div class="input-group">
+        <label for="mailUsername">MAIL USERNAME(Email)</label>
+        <input id="mailUsername" name="MAIL_USERNAME" type="email" value="{{ email }}"/>
+      </div>
+
+      <div class="input-group">
+        <label for="password">MAIL PASSWORD</label>
+        <input id="password" name="MAIL_PASSWORD" type="password" value="{{ password }}"/>
+      </div>
+        <div class="input-group">
+        <label for="confirm_password">CONFIRM MAIL PASSWORD</label>
+        <input id="confirm_password" name="CONFIRM_MAIL_PASSWORD" type="password" value="{{ password }}"/>
+      </div>
+
+      <div class="input-group">
+        <label for="ssl">MAIL USE SSL</label>
+        <select id="ssl" name = "MAIL_USE_SSL">
+            <option value="True" selected>True</option>
+            <option value="False">False</option>
+        </select>
+      </div>
+
+<!--       CODE FOR DROP DOWN MENU
+     <div class="input-group">
+        <label for="subject">How can I help you?</label>
+        <select id="subject" name="subject">
+          <option>I have a problem.</option>
+          <option>I have a general question.</option>
+        </select>
+      </div>
+-->
+
+<!--     CODE FOR  COMMENT BOX
+      <div class="input-group">
+        <label for="problem">Elaborate the exact problem you are facing</label>
+        <textarea id="problem" name="problem" rows="6" cols="65"></textarea>
+      </div>
+-->
+
+<!--    CODE FOR DIRECTLY INSERTING VALUES IN THE DISPLAYED JSON FORMAT
+        <input name="secret" type="hidden" value="1b3a9374-1a8e-434e-90ab-21aa7b9b80e7"/>
+-->
+
+      <button type="submit">Send It!</button>
+    </form>
+  </section>
+    <div id="opt"></div>
+  <div class="results">
+    <h2>Form Data</h2>
+    <pre></pre>
+  </div>
+
+<script type="text/javascript" src = "static/app.js">
+
+</script>
+
+</body>
+
+</html>
