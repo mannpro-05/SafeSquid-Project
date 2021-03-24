@@ -1,6 +1,11 @@
 import csv
 import time
+import os
 from datetime import datetime
+path = os.getcwd() + '/Logs'
+os.chdir(path)
+__,__,filenames = next(os.walk('.'))
+print(filenames)
 '''
 Input: it will get the value of the input filed and a the name of the database
 Processing: It will search for the value in its respective database and if value is there then it wil return Its Id
